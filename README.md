@@ -1,1 +1,1 @@
-UNSW learning note.
+UNSW Learning Diary.

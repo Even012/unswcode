@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+
+\usepackage{geometry}
+\geometry{a4paper,scale=0.80}
+
+\title{Number Theory (P)}
+\author{}
+\date{}
+
+\begin{document}
+	\maketitle
+	\begin{spacing}{1.5}
+		
+	\section*{Prove:}
+	Prove that if $m = _{(_n)}m'$ and $p = _{(_n)}p'$ then $m+p = _{(_n)}m'+p'$
+	
+	\subsection*{proof}
+	By the definition of mod, $ m = _{(_n)}p$ if $ n|(m-p) $. So we can get that $ n|(m-m') $ and $ n|(p-p') $.\\
+	Therefore, for some $ k_1, k_2 \in Z$,
+	\begin{center}
+		$m=k_1n+m'$,\\
+		$p=k_2n+p'$.
+	\end{center}
+	Add two equation, we can get that $m+p=(k_1+k_2)n+(m'+p')$. \\
+	Because $ k_1, k_2 \in Z$, then $ k_1+k_2 \in Z $, so $ n|((m+p)-(m'+p'))$.\\
+	Therefore $m+p=_{(_n)}(m'+p')$.
+	
+	\end{spacing}
+\end{document}

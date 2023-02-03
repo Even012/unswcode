@@ -1,0 +1,47 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage{amsmath}
+
+\geometry{a4paper,scale=0.80}
+\textsl{}
+\title{Set Theory (D)}
+\author{}
+\date{}
+
+\begin{document}
+	\begin{spacing}{1.5}
+		\maketitle
+		
+		\section*{Prove:}
+		Prove, using the Laws of Set Operations, for all sets $A: A \cap (\mathcal{U} \oplus A) = \emptyset$.
+		
+		\subsection*{proof}
+		\[\begin{array}{rclr}
+			A \cap (\mathcal{U} \oplus A) &=& A \cap ((\mathcal{U} \cap A^{c})\cup(\mathcal{U}^{c}\cap A)) &\quad\text{(Definition of $ \oplus $)}\\
+			&=& A \cap ((A^{c}\cap\mathcal{U})\cup(\mathcal{U}^{c}\cap A)) &\quad\text{(Communitivity of $ \cap $)}\\
+			&=& A \cap (A^{c}\cup(\mathcal{U}^{c}\cap A)) &\quad\text{(Identity of $ \cap $)}\\
+			&=& A \cap (A^{c}\cup(\mathcal{U}^{c}\cap \mathcal{U}\cap A)) &\quad\text{(Identity of $ \cap $)}\\
+			&=& A \cap (A^{c}\cup(\mathcal{U}\cap\mathcal{U}^{c} \cap A)) &\quad\text{(Communitivity of $ \cap $)}\\
+			&=& A \cap (A^{c}\cup(\emptyset \cap A)) &\quad\text{(Complement with $ \cap $)}\\
+			&=& A \cap (A^{c}\cup(A \cap \emptyset)) &\quad\text{(Communitivity of $ \cap $)}\\
+			&=& A \cap (A^{c}\cup(A \cap A\cap A^{c})) &\quad\text{(Complement with $ \cap $)}\\
+			&=& A \cap (A^{c}\cup(A \cap A^{c})) &\quad\text{(Idempotence of $ \cap $)}\\
+			&=& A \cap ((A^{c}\cup A)\cap(A^{c} \cup A^{c})) &\quad\text{(Distributivity of $ cup $ over $ \cap $)}\\
+			&=& A \cap ((A^{c}\cup A)\cap A^{c}) &\quad\text{(Idempotence of $ \cup $)}\\
+			&=& A \cap ((A \cup A^{c})\cap A^{c}) &\quad\text{(Communitivity of $ \cup $)}\\
+			&=& A \cap ( \mathcal{U} \cap A^{c}) &\quad\text{(Complement with $ \cup $)}\\
+			&=& (A \cap \mathcal{U}) \cap A^{c} &\quad\text{(Assosiativity with $ \cap $)}\\
+			&=& A \cap  A^{c} &\quad\text{(Identity of $ \cap $)}\\
+			&=&  \emptyset  &\quad\text{(Complement with $ \cap $)}
+		\end{array}\]
+		
+		
+	\end{spacing}
+	
+	
+	
+\end{document}

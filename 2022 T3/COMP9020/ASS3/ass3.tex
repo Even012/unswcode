@@ -1,0 +1,280 @@
+\documentclass[]{article}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage { enumerate }
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\geometry{a4paper,scale=0.80}
+
+
+%opening
+\title{Assignment 3}
+\author{z5395765}
+
+\begin{document}
+	\maketitle
+	
+	\begin{spacing}{1.5}
+		
+		\section*{Problem1}
+		\subsection*{(a) Give an asymptotic upper bound, in terms of $ n $, for the running time of sum.}
+		We execute the operation $ '+' $ in the loop for $ n \times n $ times. So the upper bound for the running time of sum is $ O(n^2) $.
+		\subsection*{(b) Give an asymptotic upper bound, in terms of $ n $, for the running time of product.}
+		We execute the operation $ add $ in the loop for $ n \times n $ times and every time, $ add $ will add the elements of a set S in $ O(|S|) $ time.  In this case, $ S = n $, so the upper bound for the running time of product is $ O(n^3) $.
+		\subsection*{(c) With justification, give a recurrence equation for $ T(n) $.}
+		As stated in the question, the product of $ 1 \times 1 $ matrices takes $ O(1) $ time, so the $ T(1) = O(1) $. As for the submatrices of $ n \times n $ matrices A and B, it takes $ O(n/2) \times 8 $ time to compute the product  and $ O(1) \times 4 $ to compute the addition.\\
+		Therefore, $ T(n) = 8O(n/2) + 4O(1)$, $ T(1) = O(1) $. 
+		\subsection*{(d) Find an asymptotic upper bound for $ T(n) $.}
+		According to the Master Theorum, in this case, $ a = 8, b = 2, c = 0, d= 3, k=0 $, $ c<d $, so the upper bound for $ T(n) $ is $ O(n^3) $.
+		
+		\section*{Problem2}
+		\subsection*{(a) Formulate this problem as a problem in propositional logic. Specifically:}
+		\subsubsection*{(i) Define your propositional variables}
+		Assume that houses in the upper row is House1-House4, the houses in the lower row is House5-House8.\\
+		\begin{center}
+			H1:  House1 is on channel hi.\\
+			H2: House2 is on channel hi.\\
+			H3: House3 is on channel hi.\\
+			H4: House4 is on channel hi.\\
+			H5: House5 is on channel hi.\\
+			H6: House6 is on channel hi.\\
+			H7: House7 is on channel hi.\\
+			H8: House8 is on channel hi.
+		\end{center}
+		
+		
+		\subsubsection*{(ii) Define any propositional formulas that are appropriate and indicate what propositions they represent.}
+		The propositional formulas and the propositions are defined as below: 
+		\begin{center}
+			$ I_{1,2}: H_1 \leftrightarrow \neg H_2 $ indicates that If House1 is on channel hi, then House2 is on channel lo, and vice versa.\\
+			$ I_{2,3}: H_2 \leftrightarrow \neg H_3 $ indicates that If House2 is on channel hi, then House3 is on channel lo, and vice versa.\\
+			$ I_{3,4}: H_3 \leftrightarrow \neg H_4 $ indicates that If House3 is on channel hi, then House4 is on channel lo, and vice versa.\\
+			$ I_{5,6}: H_5 \leftrightarrow \neg H_6 $ indicates that If House5 is on channel hi, then House6 is on channel lo, and vice versa.\\
+			$ I_{6,7}: H_6 \leftrightarrow \neg H_7 $ indicates that If House6 is on channel hi, then House7 is on channel lo, and vice versa.\\
+			$ I_{7,8}: H_7 \leftrightarrow \neg H_8 $ indicates that If House7 is on channel hi, then House8 is on channel lo, and vice versa.\\ 
+			$ I_{1, 5}: H_1 \leftrightarrow \neg H_5 $ indicates that If House1  is on channel hi, then House5 is on channel lo, and vice versa.\\ 
+			$ I_{2,6}: H_2 \leftrightarrow \neg H_6 $ indicates that If House2 is on channel hi, then House6 is on channel lo, and vice versa.\\ 
+			$ I_{3,7}: H_3 \leftrightarrow \neg H_7 $ indicates that If House3 is on channel hi, then House7 is on channel lo, and vice versa.\\ 
+			$ I_{4,8}: H_4 \leftrightarrow \neg H_8 $ indicates that If House4 is on channel hi, then House8 is on channel lo, and vice versa.\\ 
+		\end{center}
+	
+		
+		\subsubsection*{(iii) Indicate how you would solve the problem (or show that it cannot be done) using propositional	logic. It is sufficient to explain the method, you do not need to provide a solution.}
+		In order to assign channels to networks so that there is no interference, we need to satisfy all the proposition I defined in the question(ii), so the propsitional logic would be:
+		\begin{center}
+			$ I_{1,2}\wedge I_{2,3}\wedge I_{3,4}\wedge I_{5,6}\wedge I_{6,7}\wedge I_{7,8}\wedge I_{1, 5}\wedge I_{2,6}\wedge I_{3,7}\wedge I_{4,8} = \psi$
+		\end{center}
+		To show that $ \psi $ is satisfiable, we create a truth table involving $ H_1 - H_8,I_{1,2} -  I_{4,8}, \psi $ and see if there is any valuation which makes all of the $ I_{i,j} $ true.
+		\subsubsection*{(iv) Explain how to modify your answer(s) to (i) and (ii) if the goal was to see if it is possible to solve with 3 channels rather than 2.}
+		We can define 3 variables for each house($ H_i, M_i, L_i $). In order to make the neighbour houses not interfered by each other, we set the formula as ($ H_i \leftrightarrow \neg H_j ) \wedge (M_i \leftrightarrow \neg M_j ) \wedge (L_i \leftrightarrow \neg L_j ) $ if ith house and the jth house are neighbour.
+		
+		
+		\subsection*{(b) Suppose each house chooses, uniformly at random, one of the two network channels. What is the probability that there will be no interference?}
+		Suppose ith house and the jth house are neighbours, $ P(I_{i,j} \text{ is true}) = \frac{1}{2} $. From the answer of (ii), $ P = \frac{1}{2^{10}} = \frac{1}{1024}$ .
+		
+		\section*{Problem3 }
+		Prove the following results hold in all Boolean Algebras:
+		\subsection*{(a) Show that $ (x \wedge  1 ' ) \vee  (x'  \wedge  1 )=x' $}
+		\[\begin{array}{rclr}
+			(x \wedge  1 ' ) \vee  (x'  \wedge  1 )&=& ((x \wedge  1 ' ) \vee  x' ) \wedge  ((x \wedge  1 ' ) \vee  1 ) &\quad\text{(Distributivity of $\vee$ over $\wedge$)}\\
+			&=& (x'  \vee  (x \wedge  1 ' )) \wedge  ((x \wedge  1 ' ) \vee  1 ) &\quad\text{(Commutatitivity of $\vee$)}\\
+			&=& ((x'  \vee  x) \wedge  (x'  \vee  1 ' )) \wedge  ((x \wedge  1 ' ) \vee  1 ) &\quad\text{(Distributivity of $\vee$ over $\wedge$)}\\
+			&=& ((x \vee  x' ) \wedge  (x'  \vee  1 ' )) \wedge  ((x \wedge  1 ' ) \vee  1 ) &\quad\text{(Commutatitivity of $\vee$)}\\
+			&=& (1  \wedge  (x'  \vee  1 ' )) \wedge  ((x \wedge  1 ' ) \vee  1 ) &\quad\text{(Complement with $\vee$)}\\
+			&=& ((1  \wedge  x' ) \vee  (1  \wedge  1 ' )) \wedge  ((x \wedge  1 ' ) \vee  1 ) &\quad\text{(Distributivity of $\wedge$ over $\vee$)}\\
+			&=& ((1  \wedge  x' ) \vee  0 ) \wedge  ((x \wedge  1 ' ) \vee  1 ) &\quad\text{(Complement with $\wedge$)}\\
+			&=& ((x'  \wedge  1 ) \vee  0 ) \wedge  ((x \wedge  1 ' ) \vee  1 ) &\quad\text{(Commutatitivity of $\wedge$)}\\
+			&=& (x'  \vee  0 ) \wedge  ((x \wedge  1 ' ) \vee  1 ) &\quad\text{(Identity of $\wedge$)}\\
+			&=& x'  \wedge  ((x \wedge  1 ' ) \vee  1 ) &\quad\text{(Identity of $\vee$)}\\
+			&=& x'  \wedge  (1  \vee  (x \wedge  1 ' )) &\quad\text{(Commutatitivity of $\vee$)}\\
+			&=& x'  \wedge  ((1  \vee  x) \wedge  (1  \vee  1 ' )) &\quad\text{(Distributivity of $\vee$ over $\wedge$)}\\
+			&=& x'  \wedge  ((1  \vee  x) \wedge  1 ) &\quad\text{(Complement with $\vee$)}\\
+			&=& x'  \wedge  (1  \wedge  (1  \vee  x)) &\quad\text{(Commutatitivity of $\wedge$)}\\
+			&=& x'  \wedge  ((1  \wedge  1 ) \vee  (1  \wedge  x)) &\quad\text{(Distributivity of $\wedge$ over $\vee$)}\\
+			&=& x'  \wedge  (1  \vee  (1  \wedge  x)) &\quad\text{(Idempotence of $\wedge$)}\\
+			&=& x'  \wedge  (1  \vee  (x \wedge  1 )) &\quad\text{(Commutatitivity of $\wedge$)}\\
+			&=& x'  \wedge  (1  \vee  x) &\quad\text{(Identity of $\wedge$)}\\
+			&=& x'  \wedge  (x \vee  1 ) &\quad\text{(Commutatitivity of $\vee$)}\\
+			&=& x'  \wedge  1  &\quad\text{(Annihilation of $\vee$)}\\
+			&=& x'  &\quad\text{(Identity of $\wedge$)}
+		\end{array}\]
+	
+	\subsection*{(b) Show that $ (x \wedge  y) \vee  x = x $}
+	\[\begin{array}{rclr}
+		(x \wedge  y) \vee  x&=& x \vee  (x \wedge  y) &\quad\text{(Commutatitivity of $\vee$)}\\
+		&=& (x \vee  x) \wedge  (x \vee  y) &\quad\text{(Distributivity of $\vee$ over $\wedge$)}\\
+		&=& x \wedge  (x \vee  y) &\quad\text{(Idempotence of $\vee$)}\\
+		&=& (x \vee  0 ) \wedge  (x \vee  y) &\quad\text{(Identity of $\vee$)}\\
+		&=& x \vee  (0  \wedge  y) &\quad\text{(Distributivity of $\vee$ over $\wedge$)}\\
+		&=& x \vee  (y \wedge  0 ) &\quad\text{(Commutatitivity of $\wedge$)}\\
+		&=& x \vee  0  &\quad\text{(Annihilation of $\wedge$)}\\
+		&=& x &\quad\text{(Identity of $\vee$)}
+	\end{array}\]
+
+	\subsection*{(c) Show that $ 	y'  \wedge  ((x \vee  y) \wedge  x' ) = 0 $}
+	\[\begin{array}{rclr}
+		y'  \wedge  ((x \vee  y) \wedge  x' )&=& y'  \wedge  (x'  \wedge  (x \vee  y)) &\quad\text{(Commutatitivity of $\wedge$)}\\
+		&=& y'  \wedge  ((x'  \wedge  x) \vee  (x'  \wedge  y)) &\quad\text{(Distributivity of $\wedge$ over $\vee$)}\\
+		&=& y'  \wedge  ((x \wedge  x' ) \vee  (x'  \wedge  y)) &\quad\text{(Commutatitivity of $\wedge$)}\\
+		&=& y'  \wedge  (0  \vee  (x'  \wedge  y)) &\quad\text{(Complement with $\wedge$)}\\
+		&=& y'  \wedge  ((x'  \wedge  y) \vee  0 ) &\quad\text{(Commutatitivity of $\vee$)}\\
+		&=& y'  \wedge  (x'  \wedge  y) &\quad\text{(Identity of $\vee$)}\\
+		&=& y'  \wedge  (y \wedge  x' ) &\quad\text{(Commutatitivity of $\wedge$)}\\
+		&=& (y'  \wedge  y) \wedge  x'  &\quad\text{(Associativity of $\wedge$)}\\
+		&=& (y \wedge  y' ) \wedge  x'  &\quad\text{(Commutatitivity of $\wedge$)}\\
+		&=& 0  \wedge  x'  &\quad\text{(Complement with $\wedge$)}\\
+		&=& x'  \wedge  0  &\quad\text{(Commutatitivity of $\wedge$)}\\
+		&=& 0  &\quad\text{(Annihilation of $\wedge$)}
+	\end{array}\]
+
+
+	\section*{Problem4}
+		Show that there are no three element Boolean Algebras.\\
+		Assume $ (T, \vee, \wedge, ', 0,1)$  is a three element Boolean Algebra. Assume $ T = {0, 1, \alpha} $, $ \alpha \neq 0, 1$. Consider $ ': T \rightarrow T $: $ 0' = 1, 1' = 0 $, $ \alpha' $ could either be 0, 1 or $\alpha$.\\
+		If $\alpha'=0$, then $\alpha=1$, contradition.\\
+		If $\alpha'=1$, then $\alpha=0$, contradition.\\
+		If $\alpha'=\alpha$, $ 0=\alpha \wedge \alpha' = \alpha \wedge \alpha = \alpha $, contradition.\\
+		In conclusion, all the cases we consider cannot exist, so there are no three element Boolean Algebras.
+		
+		
+		
+	\section*{Problem5}
+		Prove or disprove the following logical equivalences:
+		\subsection*{(a)  Show that $ \neg (p \rightarrow q) \equiv (\neg p \rightarrow \neg q) $}
+		Counter example: Suppose p is True, q is True, $  \neg (p \rightarrow q) $ is False, while $ (\neg p \rightarrow \neg q) $ is True.\\
+		Therefore, $ \neg (p \rightarrow q) \not\equiv (\neg p \rightarrow \neg q) $.
+		\subsection*{(b) Show that $ ((p\wedge q) \rightarrow  r) = (p \rightarrow  (q\rightarrow r)) $}
+		\[\begin{array}{rclr}
+			((p\wedge q) \rightarrow  r)&\equiv& \neg (p \wedge  q) \vee  r &\quad\text{(Implication)}\\
+			&\equiv& (\neg p \vee  \neg q) \vee  r &\quad\text{(De Morgan's, $\neg$ over $\wedge$)}\\
+			&\equiv& \neg p \vee  (\neg q \vee  r) &\quad\text{(Associativity of $\vee$)}\\
+			&\equiv& p \rightarrow  (\neg q \vee  r) &\quad\text{(Implication)}\\
+			&\equiv& (p \rightarrow  (q\rightarrow r)) &\quad\text{(Implication)}
+		\end{array}\]
+	
+	\subsection*{(c) Show that $ ((p \vee  (q\vee r)) \wedge  (r\vee p)) = ((p\wedge q) \vee  (r\vee p)) $}
+	\[\begin{array}{rclr}
+		((p \vee  (q\vee r)) \wedge  (r\vee p))&\equiv& (p \vee  (r \vee  q)) \wedge  (r \vee  p) &\quad\text{(Commutatitivity of $\vee$)}\\
+		&\equiv& (r \vee  p) \wedge  (p \vee  (r \vee  q)) &\quad\text{(Commutatitivity of $\wedge$)}\\
+		&\equiv& ((r \vee  p) \wedge  p) \vee  ((r \vee  p) \wedge  (r \vee  q)) &\quad\text{(Distributivity of $\wedge$ over $\vee$)}\\
+		&\equiv& (r \vee  p) \wedge  (p \vee  (r \vee  q)) &\quad\text{(Distributivity of $\wedge$ over $\vee$)}\\
+		&\equiv& (r \vee  p) \wedge  ((p \vee  r) \vee  q) &\quad\text{(Associativity of $\vee$)}\\
+		&\equiv& (r \vee  p) \wedge  ((r \vee  p) \vee  q) &\quad\text{(Commutatitivity of $\vee$)}\\
+		&\equiv& (r \vee  (p \vee  p)) \wedge  ((r \vee  p) \vee  q) &\quad\text{(Idempotence of $\vee$)}\\
+		&\equiv& ((r \vee  p) \vee  p) \wedge  ((r \vee  p) \vee  q) &\quad\text{(Associativity of $\vee$)}\\
+		&\equiv& (r \vee  p) \vee  (p \wedge  q) &\quad\text{(Distributivity of $\vee$ over $\wedge$)}\\
+		&\equiv& ((p\wedge q) \vee  (r\vee p)) &\quad\text{(Commutatitivity of $\vee$)}
+	\end{array}\]
+
+
+	\section*{Problem6}
+	\subsection*{(a) Using the recursive definition of a binary tree structure, or otherwise, derive a recurrence equation for $  T(n) $.}
+	Let $ T(k,n) $ represents the number of trees with n nodes in total, k nodes in $ T_l $. The number of nodes of $ T_l $ can be any integer between 0 and n-1, and all the cases are disjoint. Therefore:
+	\[
+	\begin{array}{rl}
+		T(n) &= T(0,n) + T(1,n) + ... + T(n-2,n) + T(n-1,n)\\
+		&= T(0) \times T(n-1) + T(1) \times T(n-2)  + ... + T(n-2) \times T(1) + T(n-1) \times T(0) \\
+		&= \Sigma_{k=0}^{n-1}T(k) \times T(n-1-k) 
+	\end{array}
+	\]
+	Therefore, a recurrence equation for $ T(n) $ : $T(n)=\Sigma_{k=0}^{n-1}T(k) \times T(n-1-k)   $.
+	
+	
+	\subsection*{(b) Using observations from Assignment 2, or otherwise, explain why a full binary tree must have an odd number of nodes. }
+	Using the observation from Assignment2, leaves = fullly internals + 1 and nodes = fully internals + leaves. Therefore, nodes = 2fully internals 	+1. Suppose the number of fully internals is k, the number of nodes is 2k+1. Therefore, a full binary tree must have an odd number of nodes.
+	
+	\subsection*{(c) Let $ B(n) $ denote the number of full binary trees with n nodes. Derive an expression for B(n), involving  $ T(n') $ where $ n' \leq  n $ }
+	
+	By observation, we know that the number of internals of a full binary tree with n nodes equals to the number of binary trees with n nodes($ T(n) $). Therefore, suppose the number of internals of a full bianary tree is k, then $ B(2k+1) = T(k) $. Therefore,
+	$$ B(n)=\left\{
+	\begin{aligned}
+		0 & , & n \text{ is even}, \\
+		T(\frac{n-1}{2}) & , & n \text{ is odd}.
+	\end{aligned}
+	\right.$$
+	
+	\subsection*{(d) Using your answer for part (c), give an expression for $ F(n) $.}
+	We can set a parse tree for any fomulas in NNF. If we use n  propositional variables exactly one time each, we know that the nodes in total of the parse tree is $ 2n-1 $. There are $ B(2n-1) $ ways to shape the tree, $ 2^{n-1} $ ways to fill $ n-1 $ internal nodes, $ 2^{n}n! $ ways to fill $ n $ leaves. Therefore, $ F(n) = B(2n-1) 2^{2n-1}n!$.
+		
+	\section*{Problem7}
+	\subsection*{(a) Express $  p_1(n + 1) $, $ p2_(n + 1) $, $ p_3(n + 1) $, $ p_4(n + 1) $, and $ p_5(n + 1) $ in terms of $  p_1(n) $, $ p_2(n) $, $ p_3(n) $, $  p_4(n) $, and $ p_5(n) $.}
+	$ p_1(n+1) = \frac{1}{2}p_1(n)  $\\
+	$ p_2(n+1) = \frac{1}{2}p_1(n) + \frac{1}{4}p_2(n) $\\
+	$ p_3(n+1) = \frac{1}{4}p_2(n) + \frac{1}{2}p_3(n) $\\
+	$ p_4(n+1) = \frac{1}{4}p_2(n) + \frac{1}{2}p_4(n)  $\\
+	$ p_5(n+1) =\frac{1}{4}p_2(n) + \frac{1}{2}p_3(n)+ \frac{1}{2}p_4(n) +p_5(n) $
+	
+	
+	\subsection*{(b) Prove ONE of the following:}
+	(i) Prove that for all $ n \in N $: $  p_1(n) = \frac{1}{2^n} $\\
+	From (a), we know that $ p_1(n+1) = \frac{1}{2}p_1(n)  $. Therefore through unwinding:
+	\[
+	\begin{array}{rl}
+		p_1(n) &=\frac{1}{2}p_1(n-1)\\
+		&= \frac{1}{2} \times \frac{1}{2}p_1(n-2) \\
+		&= ... \\
+		&= \frac{1}{2^{n-1}}p_1(1)\\
+		&= \frac{1}{2^{n}}
+	\end{array}
+	\]
+	(ii) For all $ n \in N:  p_2(n)=2(\frac{1}{2^n}-\frac{1}{4^n})$
+	Let P(n) be the proposition that $ p_2(n)=2(\frac{1}{2^n}-\frac{1}{4^n}) $.\\
+	Base case, n = 0, $ P_2(0) = 0 = 2(\frac{1}{2^0}-\frac{1}{4^0}) $.\\
+	Induction case: $ p_2(n) \implies p_2(n+1)$.\\
+	Assume $ p_2(n) $ holds, which means $  p_2(n)=2(\frac{1}{2^n}-\frac{1}{4^n}) $.\\
+		\[
+	\begin{array}{rl}
+		 p_2(n+1) &= \frac{1}{2}p_1(n) + \frac{1}{4}p_2(n)\\
+		&= \frac{1}{2}\frac{1}{2^{n}} + \frac{1}{4}2(\frac{1}{2^n}-\frac{1}{4^n}) \\
+		&= \frac{1}{2^{n}}-\frac{2}{4^{n+1}} \\
+		&= 2(\frac{1}{2^{n+1}}-\frac{1}{4^{n+1}}) 
+	\end{array}
+	\]
+	Therefore, $ P_2(n+1) $ holds. Therefore, For all $ n \in N:  p_2(n)=2(\frac{1}{2^n}-\frac{1}{4^n})$
+	
+	\subsection*{(c) What is the expected value of $ X3 $?}
+	Using the result of part(b), we know that when $ n=3 $:
+	\begin{center}
+		$ p_1(3) = \frac{1}{8} $\\
+		$ p_2(3) = \frac{7}{32} $\\
+		$ p_3(3) = \frac{5}{32} $\\
+		$ p_4(3) = \frac{5}{32} $\\
+		$ p_5(3) = \frac{11}{32} $
+	\end{center}
+	Therefore, 
+	\begin{center}
+		$ p(X_3=0) = \frac{1}{8} $\\
+		$ p(X_3=1) = \frac{7}{32} $\\
+		$ p(X_3=2) = \frac{10}{32} $\\
+		$ p(X_3=3) = \frac{11}{32} $
+	\end{center}
+	Therefore, the expected value of $ X3 $:
+	$ E = 0 \times \frac{1}{8} + 1 \times \frac{7}{32} + 2 \times  \frac{10}{32} + 3 \times \frac{11}{32} = \frac{15}{8} $.
+	
+	\section*{Problem8}
+	\subsection*{(a) Express $ p_D(n + 1) $ in terms of $  p_A(n) $, $ p_B(n) $, $ p_C(n) $ and $ p_D(n) $.}
+	After n+1 time steps, D is infected indicates that A and B are infected after n time steps. There are 4 possible cases for the next action of the state that A,B are infected, which is no more infection, only C is infected, only D is infected and both C and D are infected. Therefore, the possibility of D infected in the next step is $ \frac{1}{2} $.\\
+	Therefore, $  p_D(n+1) = p_A(n) \times p_B(n) \times \frac{1}{2}$.
+	
+	\subsection*{(b) Find an expression for $ p_D(n) $ in terms of n only. You do not need to prove the result, but you should briefly justify your answer.}
+	Relate this system to Q7, we can link infected vertices set $  \{A\}  $ with state 1,  infected vertices set $ \{A, B\} $ with state2,  infected vertices set $ \{A, B, C\} $ with state3,  infected vertices set $ \{A, B, D\} $ with state4,  infected vertices set $ \{A, B, C, D\} $  with state5. In this way:
+	\begin{center}
+			$  p_D(n) = 1 - \frac{n+1}{2^n} $
+	\end{center}
+	
+	\subsection*{(c) What is the expected number of infected vertices after n = 3 time steps?}
+	Suppose $ X_3 $ is the number of infected vertices after 3 time steps  .
+	\begin{center}
+		$ p(X_3=1) = \frac{1}{8} $\\
+		$ p(X_3=2) = \frac{7}{32} $\\
+		$ p(X_3=3) = \frac{10}{32} $\\
+		$ p(X_3=4) = \frac{11}{32} $
+	\end{center}
+	$ E = 1 \times \frac{1}{8} + 2 \times \frac{7}{32} + 3 \times  \frac{10}{32} + 4 \times \frac{11}{32} = \frac{23}{8} $.\\
+	So the expected number of infected vertices is $ \frac{23}{8} $.
+	
+	\end{spacing}
+\end{document}

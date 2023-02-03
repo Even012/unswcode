@@ -1,0 +1,317 @@
+\documentclass[]{article}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage { enumerate }
+
+\geometry{a4paper,scale=0.80}
+
+
+%opening
+\title{Assignment1}
+\author{z5395765}
+
+
+
+\begin{document}
+\maketitle
+\begin{spacing}{1.5}
+	
+
+\section*{Problem1}
+
+For $x, y \in Z$ we define the set:
+\begin{center}
+$ S_{x}, _ {y}  = {mx + ny : m, n \in Z} .$\\
+\end{center}
+\subsection*{(a) Give four elements of $S_6,_9$.}
+$ S_6,_9 = \{ 6m+9n, m,n \in Z \}. $\\
+let $ m = 0, n = 0 $ , the element is 0.\\
+let $ m = 1, n = -1 $ , the element is -3.\\
+let $ m = -1, n = 1 $ , the element is 3.\\
+let $ m = 1, n = 0 $ , the element is 6.\\
+So, four elements of $ S_6,_9 $ : -3, 0, 3, 6.
+\subsection*{(b) Give four elements of $ S_{10},_{-16}. $}
+$ S_{10},_{-16} = \{ 10m-16n, m,n \in Z \}. $    
+let $ m = 0, n = 0 $ , the element is 0.\\
+let $ m = 1, n = 1 $ , the element is -6.\\
+let $ m = -1, n = -1 $ , the element is 6.\\
+let $ m = 1, n = 0 $ , the element is 10. \\
+So, four elements of $ S_{10},_{-16} $ : -6, 0, 6, 10. 
+\subsection*{For the following questions, let $ d $ = gcd($ x, y $) and $ z $ be the smallest positive number in $ S_{x}, _ {y} $, or $ 0 $ if there are no positive numbers in $ S_{x}, _ {y} $.}
+\subsection*{(c)  (i)  Show that $  S_{x},_{y} \subseteq \{n : n \in Z$ and  $d | n\} $.}
+Suppose $ a \in  S_{x},_{y} $, then $ a = mx+ny$ for some $m,n \in Z .$\\
+Because $ d = gcd(x,y) $, so there exists $ x = k_1d $ for some $ k_1 $ and $ y = k_2d $ for some $ k_2 $. Therefore $ a = (k_1m + k_2n)d $.\\
+Because $ k_1, m, k_2, n \in Z$, so $ k_1m + k_2n  \in Z$, so there exists $ k \in Z $, $ a = kd $. Therefore $ d | a $.\\
+Therefore $ a \in \{n : n \in Z$ and  $d | n\} $.\\
+Therefore $  S_{x},_{y} \subseteq \{n : n \in Z$ and  $d | n\} $.
+\subsection*{(ii) Show that $ d  \leq z $. }
+Because $ z $ is a number in $ S_{x},_{y} $, therefore $ z = mx+ny $ for some $ m,n \in Z $. \\
+Because $ d = gcd(x, y) $, so there exists $ x = k_1d $ for some $ k_1 $ and $ y = k_2d $ for some $ k_2 $. Therefore $ z = (k_1m + k_2n)d $.\\
+Because $ k_1, m, k_2, n \in Z$, so $ k_1m + k_2n  \in Z$, so there exists $ k \in Z $, $ z = kd $.\\
+Because $ z \geq 0 $, by definition of gcd, d is also positve. Therefore, $ k = z/d $ is also positive. So $ z/d \geq 1 $.\\
+Therefore $d \leq z$.
+
+\subsection*{(d) (i) Show that $ z | x $ and  $z | y$(Hint: consider $(x \% z) $ and  $(y  \% z)). $}
+Suppose $ x = _{(z)}p, y = _{(z)}q $, which means $ x = k_1z + p $ and $  y = k_2z + q $. In order to prove that $ z | x $ and  $z | y$,  I will show that $ p, q = 0 $.\\
+Because $ z $ is the smallest positive number in $ S_{x},_{y} $, therefore $ z = m_1x+n_1y $ for some $ m_1,n_1 \in Z $. Then $ z = mx+ny = m(k_1z + p) + n(k_2z + q)$.\\
+Then $ z = (mk_1 + nk_2)z + mp + nq $. In order to make this equation hold, we must set $ mk_1 + nk_2 = 1 $ and $ mp + nq  = 0 $. In this case, m and n cannot be 0 at the same time, which means p and q are both 0.\\
+Therefore, $ p, q = 0 $.\\
+Therefore, $ z | x $ and  $z | y$.
+
+\subsection*{(ii) Show that $ z  \leq d $.}
+Because $ d = gcd(x, y) $, so there exists $ x = k_1d $ for some $ k_1 $ and $ y = k_2d $ for some $ k_2 $.\\ 
+Because $ z $ is a number in $ S_{x},_{y} $, therefore $ z = mx+ny $ for some $ m,n \in Z $. \\
+Therefore $ z = (k_1m + k_2n)d $.\\
+In order to let z be the smallest number in $ S_{x},_{y} $, we just need to set $ mk_1 + nk_2 $ is the smallest. Because z and d are both positive, so $ mk_1 + nk_2 $ is a positive integer. The smallest positive integer is 1. So $ mk_1 + nk_2 = 1$. Therefore $ z = d $.\\
+Therefore $ z  \leq d $.
+
+\section*{Problem2}
+For all $ x, y \in Z $ with $ y > 1 :$
+\subsection*{(a) Prove that if gcd($x, y $) = 1, then there is at least one $ w \in  [0, y) \cap N$ such that $ wx = _{(y)}1 $.}
+
+By Bezout's identity, $ mx+ny=1 $, then $ mx = _{(y)}1$.\\
+By Euclid's division lemma, for $ m \in Z, y \in Z_{>0} $, there exists $ q, r \in Z $ with $ 0 \leq r < y $ such that
+\begin{center}
+	$ m = qy + r $
+\end{center}
+Therefore, $ (qy + r)x  = _{(y)}1$, which means $  qyr + rx  = _{(y)}1$, since $ y | yqr $, so $ rx  = _{(y)}1 $.\\
+Therefore, there exists $ r \in  [0, y) \cap N $, $ rx  = _{(y)}1 $.
+So there is at least one $ w \in  [0, y) \cap N $, $ wx  = _{(y)}1 $.
+
+\subsection*{(b) Prove that if $ gcd(x, y) = 1 $ and $ y|kx $ then $ y|k $.}
+By Bezout's identity, $ mx+ny=1 $, times $ k $ on both sides, then $ kmx + kny = k$.\\
+Because $ y|kx, m \in Z$, then $ y|kmx $. Plus, $ y|kny $, so $ k = kmx+kny $ is multiple of $ y $.\\
+Therefore, $ y|k $.
+
+\subsection*{(c) Prove that if gcd($x, y $) = 1, then there is at most one $ w \in  [0, y) \cap N$ such that $ wx = _{(y)}1 $.}
+Suppose there are more than one $ w \in  [0, y) \cap N$ such that $ wx = _{(y)}1 $. Let's say two $ w $ satisfy this equation, then let $ w_1x = _{(y)}1 $ and $ w_2x = _{(y)}1 $, $ w_1 \neq w_2 $, which means 
+\begin{center}
+	$ w_1x = k_1y+1 $ for some $ k_1 $,\\
+	$ w_2x = k_2y+1 $ for some $ k_2 .$
+\end{center}
+Subtract two equation, we get that $ (w_1 - w_2)x = (k_1 - k_2)y $. So, $ y|(w_1-w_2)x $.\\
+By the results of (b), we can get that $ y|(w_1-w_2) $.\\
+Because  $ w \in  [0, y) \cap N$, $ w_1-w_2 $ can only be $ 0 $, so $ w_1 = w_2 $, which contradicts my suppose.\\
+Therefore,  if gcd($x, y $) = 1, then there is at most one $ w \in  [0, y) \cap N$ such that $ wx = _{(y)}1 $.
+
+\section*{Problem3}
+Prove that for all $ m, n \in N _{> 0}$ with $n \leq m $:
+\begin{center}
+	$ \frac{3}{2}(n + (m \% n)) < m + n $.
+\end{center}
+
+\subsection*{Proof of Problem3}
+Let $ m \% n = p $, which means $ m = kn+p $ for $ k \in Z $. So $ \frac{3}{2}(n + (m \% n)) = \frac{3}{2}(n + p) $.\\
+Let $ S = \frac{3}{2}(n + p) - (m+n) $, in order to prove $ \frac{3}{2}(n + (m \% n)) < m + n $,we just need to prove $ S < 0 $.\\
+$ S = \frac{3}{2}(n + q) - (m+n) = \frac{1}{2}n + \frac{3}{2}p -(kn+p) = \frac{1}{2}(n+p)-kn$.\\
+Because $ m, n \in N _{> 0}$ with $n \leq m $, so for the equation $ m = kn+p $, $ k \geq 1 $ and $ 0<p<n $.\\
+Because $ 0<p<n $, so $ S <  \frac{1}{2}(n+n)-kn$, therefore $ S < (1-k)n $.\\
+Therefore, $ S<0. $\\
+Therefore, $ \frac{3}{2}(n + (m \% n)) < m + n $.
+
+\section*{Problem4}
+\subsection*{(a) prove $ A \cap \emptyset = \emptyset $.}
+\[
+\begin{array}{rclr}
+	A \cap  \emptyset &=& A \cap  (A \cap  A^{c} ) & \quad \text{(Complement with $\cap$)}\\
+	                               &=& (A \cap  A) \cap  A^{c}  &\quad \text{(Associativity of $\cap$)}\\
+	                               &=& A \cap  A^{c}  &\quad \text{(Idempotence of $\cap$)}\\
+	                               &=& \emptyset  &\quad\text{(Complement with $\cap$)}
+\end{array}
+\]
+\subsection*{(b) prove $ (A \setminus C)\cup(B \setminus C)=(A\cup B) \setminus C $ }
+\[\begin{array}{rclr}
+	(A \setminus  C) \cup  (B \setminus  C)&=& (A \cap  C^{c} ) \cup  (B \setminus  C) &\quad\text{(Definition of $\setminus$)}\\
+	&=& (A \cap  C^{c} ) \cup  (B \cap  C^{c} ) &\quad\text{(Definition of $\setminus$)}\\
+	&=& (C^{c}  \cap  A) \cup  (B \cap  C^{c} ) &\quad\text{(Commutatitivity of $\cap$)}\\
+	&=& (C^{c}  \cap  A) \cup  (C^{c}  \cap  B) &\quad\text{(Commutatitivity of $\cap$)}\\
+	&=& C^{c}  \cap  (A \cup  B) &\quad\text{(Distributivity of $\cap$ over $\cup$)}\\
+	&=& (A \cup  B) \cap  C^{c}  &\quad\text{(Commutatitivity of $\cap$)}\\
+	&=& (A \cup  B) \setminus  C &\quad\text{(Definition of $\setminus$)}
+\end{array}\]
+
+\subsection*{(c) prove $ A^{c}\oplus\mathcal{U}=A $}
+\[\begin{array}{rclr}
+	A^{c} \oplus \mathcal{U} &=& (A^{c}  \cap  \mathcal{U} ^{c} ) \cup  ((A^{c}) ^{c}  \cap  \mathcal{U} ) &\quad\text{(Definition of $\oplus$)}\\
+	&=& (A^{c}  \cap  \mathcal{U} ^{c} ) \cup  (A \cap  \mathcal{U} ) &\quad\text{(Double complement)}\\
+	&=& (A^{c}  \cap  \mathcal{U} ^{c} ) \cup  A &\quad\text{(Identity of $\cap$)}\\
+	&=& A \cup  (A^{c}  \cap  \mathcal{U} ^{c} ) &\quad\text{(Commutatitivity of $\cup$)}\\
+	&=& (A \cup  A^{c} ) \cap  (A \cup  \mathcal{U} ^{c} ) &\quad\text{(Distributivity of $\cup$ over $\cap$)}\\
+	&=& \mathcal{U}  \cap  (A \cup  \mathcal{U} ^{c} ) &\quad\text{(Complement with $\cup$)}\\
+	&=& (\mathcal{U}  \cap  A) \cup  (\mathcal{U}  \cap  \mathcal{U} ^{c} ) &\quad\text{(Distributivity of $\cap$ over $\cup$)}\\
+	&=& (\mathcal{U}  \cap  A) \cup  \emptyset  &\quad\text{(Complement with $\cap$)}\\
+	&=& (A \cap  \mathcal{U} ) \cup  \emptyset  &\quad\text{(Commutatitivity of $\cap$)}\\
+	&=& A \cup  \emptyset  &\quad\text{(Identity of $\cap$)}\\
+	&=& A &\quad\text{(Identity of $\cup$)}
+\end{array}\]
+\subsection*{(d) prove $ (A \cup B)^{c} = A^c \cap B^c $}
+
+By uniqueness of complement: $ A \cap B=\emptyset $ and $ A \cup B=\cup $ if and only if $ B=A^{c} $. In order to  prove $ (A \cup B)^{c} = A^c \cap B^c $, we just need to show that 
+\begin{enumerate}[(1)]
+	\item  $ (A \cup B) \cap (A^c \cap B^c) = \emptyset $.
+	\item  $ (A \cup B) \cup (A^c \cap B^c) = \mathcal{U} $.
+\end{enumerate}
+\subsubsection*{proof of (1)}
+\[\begin{array}{rclr}
+	 (A \cup B) \cap (A^c \cap B^c) &=& (A^c \cap B^c) \cap (A \cup B)&\quad\text{(Commutatitivity of  $\cap$)}\\
+	&=& ((A^c \cap B^c) \cap A) \cup ((A^c \cap B^c) \cap B) &\quad\text{(Distributivity of $ \cap $ over $ \cup $)}\\
+	&=& (A \cap (A^c \cap B^c)) \cup ((A^c \cap B^c) \cap B) &\quad\text{(Commutatitivity of $ \cap $)}\\
+	&=& ((A \cap A^c) \cap B^c) \cup ((A^c \cap B^c) \cap B) &\quad\text{(Associativity of $ \cap $)}\\
+	&=& ((A \cap A^c) \cap B^c) \cup (A^c \cap (B^c \cap B)) &\quad\text{(Associativity of $ \cap $)}\\
+	&=& (\emptyset \cap B^c) \cup (A^c \cap (B^c \cap B)) &\quad\text{(Complement with $ \cap $)}\\
+	&=& (\emptyset \cap B^c) \cup (A^c \cap \emptyset) &\quad\text{(Complement with $ \cap $)}\\
+	&=& \emptyset \cup (A^c \cap \emptyset) &\quad\text{(Annihilation)}\\
+	&=& \emptyset \cup \emptyset &\quad\text{(Annihilation)}\\
+	&=& \emptyset &\quad\text{(Idempotence of $ \cup $)}
+\end{array}\]
+\subsubsection*{proof of (2)}
+\[\begin{array}{rclr}
+	(A \cup B) \cup (A^c \cap B^c) &=& ((A \cup B) \cup A^c) \cap ((A \cup B) \cup B^c) &\quad\text{(Distributivity of $ \cup $ over $ \cap $)}\\
+	&=& (A^c \cup (A \cup B)) \cap ((A \cup B) \cup B^c) &\quad\text{(Commutatitivity of $ \cup $)}\\
+	&=& ((A^c \cup A) \cup B) \cap ((A \cup B) \cup B^c) &\quad\text{(Associativity of $ \cup $)}\\
+	&=& ((A^c \cup A) \cup B) \cap (A \cup (B \cup B^c)) &\quad\text{(Associativity of $ \cup $)}\\
+	&=& (\mathcal{U} \cup B) \cap (A \cup (B \cup B^c)) &\quad\text{(Complement with $ \cup $)}\\
+	&=& (\mathcal{U} \cup B) \cap (A \cup \mathcal{U}) &\quad\text{(Complement with $ \cup $)}\\
+	&=& \mathcal{U}  \cap (A \cup \mathcal{U}) &\quad\text{(duality of Annihilation of (a))}\\
+	&=& \mathcal{U}  \cap  \mathcal{U} &\quad\text{(duality of Annihilation of (a))}\\
+	&=& \mathcal{U} &\quad\text{(Idempotence of $ \cap $)}
+\end{array}\]
+Therefore $ (A \cup B)^{c} = A^c \cap B^c $.
+
+
+\subsection*{(e) prove $ ((A \cup B) \cap (B \cup C)) \cap (C \cup A) = ((A \cap B) \cup (B \cap C)) \cup (C \cap A) $}
+\[\begin{array}{rclr}
+	((A \cup  B) \cap  (B \cup  C)) \cap  (C \cup  A)&=& ((B \cup  A) \cap  (B \cup  C)) \cap  (C \cup  A) &\quad\text{(Commutatitivity of $\cup$)}\\
+	&=& (B \cup  (A \cap  C)) \cap  (C \cup  A) &\quad\text{(Distributivity of $\cup$ over $\cap$)}\\
+	&=& (C \cup  A) \cap  (B \cup  (A \cap  C)) &\quad\text{(Commutatitivity of $\cap$)}\\
+	&=& ((C \cup  A) \cap  B) \cup  ((C \cup  A) \cap  (A \cap  C)) &\quad\text{(Distributivity of $\cap$ over $\cup$)}\\
+	&=& ((C \cup  A) \cap  B) \cup  (((C \cup  A) \cap  A) \cap  C) &\quad\text{(Associativity of $\cap$)}\\
+	&=& ((C \cup  A) \cap  B) \cup  ((A \cap  (C \cup  A)) \cap  C) &\quad\text{(Commutatitivity of $\cap$)}\\
+	&=& ((C \cup  A) \cap  B) \cup  (((A \cap  C) \cup  (A \cap  A)) \cap  C) &\quad\text{(Distributivity of $\cap$ over $\cup$)}\\
+	&=& ((C \cup  A) \cap  B) \cup  (((A \cap  C) \cup  A) \cap  C) &\quad\text{(Idempotence of $\cap$)}\\
+	&=& ((C \cup  A) \cap  B) \cup  (C \cap  ((A \cap  C) \cup  A)) &\quad\text{(Commutatitivity of $\cap$)}\\
+	&=& ((C \cup  A) \cap  B) \cup  ((C \cap  (A \cap  C)) \cup  (C \cap  A)) &\quad\text{(Distributivity of $\cap$ over $\cup$)}\\
+	&=& ((C \cup  A) \cap  B) \cup  (((A \cap  C) \cap  C) \cup  (C \cap  A)) &\quad\text{(Commutatitivity of $\cap$)}\\
+	&=& ((C \cup  A) \cap  B) \cup  ((A \cap  (C \cap  C)) \cup  (C \cap  A)) &\quad\text{(Associativity of $\cap$)}\\
+	&=& ((C \cup  A) \cap  B) \cup  ((A \cap  C) \cup  (C \cap  A)) &\quad\text{(Idempotence of $\cap$)}\\
+	&=& ((C \cup  A) \cap  B) \cup  ((C \cap  A) \cup  (C \cap  A)) &\quad\text{(Commutatitivity of $\cap$)}\\
+	&=& ((C \cup  A) \cap  B) \cup  (C \cap  A) &\quad\text{(Idempotence of $\cup$)}\\
+	&=& (B \cap  (C \cup  A)) \cup  (C \cap  A) &\quad\text{(Commutatitivity of $\cap$)}\\
+	&=& ((B \cap  C) \cup  (B \cap  A)) \cup  (C \cap  A) &\quad\text{(Distributivity of $\cap$ over $\cup$)}\\
+	&=& ((B \cap  C) \cup  (A \cap  B)) \cup  (C \cap  A) &\quad\text{(Commutatitivity of $\cap$)}\\
+	&=& ((A \cap  B) \cup  (B \cap  C)) \cup  (C \cap  A) &\quad\text{(Commutatitivity of $\cup$)}
+\end{array}\]
+
+\section*{Problem5}
+Let $ \Sigma = \{0, 1\} $. For each of the following, prove that the result holds for all sets $ X,Y,Z \subseteq \Sigma^{*} $, or provide a counterexample to disprove:
+\subsection*{(a) $ (X \cup Y)^{(*)} = X^{(*)} \cup Y^{(*)} $}
+Counterexample:\\
+$ X = \{ 0\} $, $ Y = \{ 1\} $. Then, $ X \cup Y = \{0,1\} $.\\
+Therefore, $ 0101 \in (X \cup Y)^{(*)}$, while $ X^{(*)} \cup Y^{(*)} = \{00..., 11...\} $, 0101 is not in this set.
+
+\subsection*{(b) $ (X \cap Y)^{(*)} = X^{(*)} \cap Y^{(*)} $}
+Counterexample:\\
+$ X = \{ 0, 1\} $, $ Y = \{ 01\} $. Then, $ X \cap Y = \emptyset $, $ (X \cap Y)^{(*)}  $ is also empty set.\\
+While $ X^{(*)} \cap Y^{(*)} = \{0101...\} $, which is  not empty set.
+
+\subsection*{(c) $ X(Y \cup Z) = (XY) \cup (XZ) $}
+Counterexample:\\
+$ X = \{ 0\} $, $ Y = \{ 1\} $, $ Z = \emptyset $. Then, $ Y \cup Z = \{ 1\}$, so $ X(Y \cup Z) = \{01\}$  \\
+While $ XY = \{01\}, XZ = \{0\}, (XY) \cup (XZ) = \{0, 01\}$. 
+
+\section*{Problem6}
+\subsection*{(a) List all possible functions $ f : \{a, b, c\} \rightarrow \{0, 1\}$, that is, all element of $ \{0, 1\}^{\{a, b, c\}} $.}
+
+$ f_1: f(a)=0, f(b)=0, f(c)=0 $\\
+$ f_2: f(a)=0, f(b)=0, f(c)=1 $\\
+$ f_3: f(a)=0, f(b)=1, f(c)=0 $\\
+$ f_4: f(a)=1, f(b)=0, f(c)=0 $\\
+$ f_5: f(a)=0, f(b)=1, f(c)=1 $\\
+$ f_6: f(a)=1, f(b)=0, f(c)=1 $\\
+$ f_7: f(a)=1, f(b)=1, f(c)=0 $\\
+$ f_8: f(a)=1, f(b)=1, f(c)=1 $
+
+\subsection*{(b) Describe a connection between your answer for (a) and Pow($ \{a, b, c\} $).}
+
+Pow($ \{a, b, c\} $) = $ \{\emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{b, c\}, \{a, c\}, \{a, b, c\}  \} $\\
+Therefore, the number of all possible functions for (a) is 8, which is  as same as the number of all elements in Pow($ \{a, b, c\} $).
+
+\subsection*{(c) Describe a connection between your answer for (a) and $ \{w \in \{0,1\} ^ {*} : length(w) = 3\} $.}
+
+$ \{w \in \{0,1\} ^ {*} : length(w) = 3\} $ = \{000, 001, 010, 011, 100, 101, 110, 111\}, which is corresponding to contenation of all the results in the function $ f_i $.
+
+\section*{Problem7}
+Show that for any sets A, B, C there is a bijection between $ A^{(B \times C)} $ and $ (A^{B})^{C} $. 
+\subsection*{Proof of Problem7}
+By definition, bijection is a function is a function that is bijective. So I will show that there is a bijection between $ A^{(B \times C)} $ and $ (A^{B})^{C} $ by showing that there is a function between $ A^{(B \times C)} $ and $ (A^{B})^{C} $ which is both injective and surjective.\\
+By definition, for any sets A, B, C,
+\begin{center}
+	$ A^{(B \times C)} $ is the set of all functions from $ B \times C $ to $ A $.\\
+	$ (A^{B})^{C} $ is the set of all functions from $ C $ to $ A^{B} $.
+\end{center}
+
+\section*{Problem8}
+Recall the relation composition operator; defined as:
+\begin{center}
+	$ R_1; R_2 = \{(a, c) : \text{there is a $ b $ with } (a, b) \in R_1 \text{ and } (b, c) \in R_2\} $
+\end{center}
+Let S be an arbitrary set. For each of the following, prove it holds for any binary relations $ R_1, R_2, R_3  \subseteq S \times S,$ or give a conterexample to disprove:
+
+\subsection*{(a) $ (R_1; R_2) ; R_3 = R_1 ; (R_2; R_3)$} 
+Suppose there is $ (a, b) \in R_1, (b, c) \in R_2, (c, d) \in R_3 $.\\
+By definition, $ R_1; R_2 = \{(a, c) : \text{there is a $ b $ with } (a, b) \in R_1 \text{ and } (b, c) \in R_2\} $.\\
+Therefore, $ (R_1; R_2) ; R_3 = \{(a, d) : \text{there is a $ c $ with } (a, c) \in R_1; R_2 \text{ and } (c, d) \in R_3\} $.\\
+Plus $ R_2; R_3 = \{(b, d) : \text{there is a $ c $ with } (b, c) \in R_2 \text{ and } (c, d) \in R_3\} $.\\
+Therefore, 
+\[
+\begin{array}{rcl}
+	(R_1; R_2) ; R_3 &=& \{(a, d) : \text{there is a $ b $ with } (a, b) \in R_1 \text{ and } (b, d) \in R_2; R_3\} \\
+	&=& R_1 ; (R_2; R_3).
+\end{array}
+\]
+
+
+\subsection*{(b) $ I; R_1 = R_1; I = R_1 $ where $ I = \{(x,x):x \in S\} $}
+Suppose there is $ (a, a), (b, b) \in I, (a, b) \in R_2 $.\\
+By definition, 
+\[\begin{array}{rcl}
+	 I; R_1 &=& \{(a, b) : \text{there is a $ a $ with } (a, a) \in I \text{ and } (a, b) \in R_1\} \\
+	&=& \{(a, b) : \text{there is a $ b $ with } (a, b) \in R_1 \text{ and } (b, b) \in I \} \\
+	&=& R_1; I\\
+	&=& \{a, b\}\\
+	&=& R_1.
+\end{array}\]
+
+\subsection*{(c) $ (R_1 \cup R_2) ; R_3 = (R_1; R_3) \cup (R_2; R_3)$}
+Suppose there is $ (a_1, b), (a_2, c) \in R_1, (b, c) \in R_2, (c, d) \in R_3 $.\\
+Then $ R_1 \cup R_2 = \{(a_1, b), (a_2, c), (b, c)\} $. Therefore,
+\[\begin{array}{rcl}
+	(R_1 \cup R_2); R_3 &=& \{(a_2, d), (b, d) : \text{there is a $ c $ with } (a_2, c), (b, c) \in R_1 \cup R_2 \text{ and } (c, d) \in R_3\}\\
+	&=& \{(a_2, d) : \text{there is a $ c $ with } (a_2, c) \in R_1 \cup R_2 \text{ and } (c, d) \in R_3\} \\
+	&&\cup \{(b, d) : \text{there is a $ c $ with } (b, c) \in R_1 \cup R_2 \text{ and } (c, d) \in R_3\}\\
+	&=& \{(a_2, d) : \text{there is a $ c $ with } (a_2, c) \in R_1  \text{ and } (c, d) \in R_3\} \\
+	&&\cup \{(b, d) : \text{there is a $ c $ with } (b, c) \in R_2 \text{ and } (c, d) \in R_3\}\\
+	&=& (R_1; R_3) \cup (R_2; R_3).
+\end{array}\]
+
+\subsection*{(d) $ R_1; (R_2 \cap R_3) = (R_1; R_2) \cap (R_1; R_3)$}
+Suppose there is $ (a, b), (a, c_1), (a, e_1), (a, e_2) \in R_1, (b, c_2),  (c_1, d), (e_1, f_1) \in R_2, (c_1, d),  (b, c_2), (e_2, f_2) \in R_3 $.\\
+Then $ R_2 \cap R_3 = \{(b, c_2), (c_1, d)\}.$\\
+$ R_1; R_2 = \{(a, c_2), (a, d), (a, f_1) : \text{there is a $ b, c_1, e_1  $ with } (a, b), (a, c_1), (a, e_1) \in R_1 \text{ and } (b, c_2), (c_1, d), (e_1, f_1) \in R_2\} $.\\
+$ R_1; R_3 = \{(a, c_2), (a, d), (a, f_2) : \text{there is a $ b, c_1, e_2  $ with } (a, b), (a, c_1), (a, e_2) \in R_1 \text{ and } (b, c_2), (c_1, d), (e_1, f_2) \in R_3\} $.\\
+
+\[
+\begin{array}{rcl}
+	 R_1; (R_2 \cap R_3) &=& \{(a, c_2), (a, d) : \text{there is a $ b, c_1 $ with } (a, b), (a, c_1) \in R_1 \text{ and } (b, c_2), (c_1, d) \in R_2 \cap R_3\} .\\
+	 &=& \{(a, c_2), (a, d), (a, f_1) : \text{there is a $ b, c_1, e_1 $ with } (a, b), (a, c_1), (a, e_1) \in R_1 \text{ and } \\
+	 &&(b, c_2), (c_1, d), (e_1, f_1) \in R_2 \}  \cap  \{(a, c_2), (a, d), (a, f_2) : \text{there is a $ b, c_1, e_2  $ with } \\
+	 &&(a, b), (a, c_1), (a, e_2) \in R_1 \text{ and } (b, c_2), (c_1, d), (e_1, f_2) \in R_3\} \\
+	 &=& (R_1; R_2) \cap (R_1; R_3)
+\end{array}
+\]
+
+
+
+\end{spacing}
+\end{document}

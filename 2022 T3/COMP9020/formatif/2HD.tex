@@ -1,0 +1,40 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage{amsmath}
+
+\geometry{a4paper,scale=0.80}
+
+\title{Set Theory (HD)}
+\author{}
+\date{}
+
+\begin{document}
+	\begin{spacing}{1.5}
+		\maketitle
+		
+		\section*{Prove:}
+		Prove that for all sets $A \cup (B \cap A) = A$.
+		
+		\subsection*{proof}
+		\[\begin{array}{rclr}
+			A \cup (B \cap A) &=& (A \cup B) \cap (A \cup A) &\quad\text{(Distributivity of $\cup$ over $\cap$)}\\
+			&=& (A \cup  B) \cap  A &\quad\text{(Idempotence of $\cup$)}\\
+			&=& (A \cup  B) \cap  (A \cup  \emptyset ) &\quad\text{(Identity of $\cup$)}\\
+			&=& A \cup  (B \cap  \emptyset ) &\quad\text{(Distributivity of $\cup$ over $\cap$)}\\
+			&=& A \cup  (B \cap  (B \cap  B^{c} )) &\quad\text{(Complement with $\cap$)}\\
+			&=& A \cup  ((B \cap  B) \cap  B^{c} ) &\quad\text{(Associativity of $\cap$)}\\
+			&=& A \cup  (B \cap  B^{c} ) &\quad\text{(Idempotence of $\cap$)}\\
+			&=& A \cup  \emptyset  &\quad\text{(Complement with $\cap$)}\\
+			&=& A &\quad\text{(Identity of $\cup$)}
+		\end{array}\]
+		
+		
+	\end{spacing}
+	
+	
+	
+\end{document}

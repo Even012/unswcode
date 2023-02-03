@@ -1,0 +1,161 @@
+### diag
+diag(n)
+diag(x,n)    x is the element, n is the dimension.
+```{r}
+# examples
+diag(3)
+
+x = c(1,5,9)
+diag(x)
+
+diag(x,5)
+
+diag(2,4)
+
+2*diag(4)
+```
+
+### matrix
+
+matrix(element,row,column)
+
+```{r}
+
+matrix(1,4,4)
+matrix(1,4,3)
+
+x = c(1,5,9)
+matrix(x,4,3)
+matrix(x,4,3,byrow = TRUE)
+
+matrix(1,5)
+matrix(1,5,1)
+matrix(1,ncol=5)
+matrix(1,1,5)
+```
+
+### c , cbind
+```{r}
+x1=c(1,2,3,4)
+x2=c(4,5,6,7)
+x3=c(7,8,9,10)
+cbind(x1,x2,x3)
+rbind(x1,x2,x3)
+```
+
+
+
+### Matrix arithmetic and operations
+
++,-,*,/   elementwise
+
+%*%       matrix multiplication       need to be comformable
+
+
+```{r}
+A = matrix(1:12,3)
+B = matrix(2,3,4)
+C = matrix(c(2,4,5,7,6,3,9,1),4)
+A
+B
+A+B
+A*B
+A/B
+exp(A)
+```
+
+
+crossprod(x,y) is equivalent to t(x) %*% y
+```{r}
+A1=matrix(1:15,ncol=3)
+A1%*%B 
+```
+
+
+### Matrix Functions
+ 
+ dim(x), nrow(x), ncol(x) obatain matrix dimensions
+ 
+```{r}
+dim(A)
+nrow(A)
+ncol(A)
+```
+ 
+ t(x)  transpose of x
+ c(x) get a row with all elements stacked up
+
+```{r}
+c(A)
+dim(t(A))
+length(c(A))
+matrix(c(A),3,4)
+```
+ 
+  solve(x) inverse of x
+```{r}
+D = matrix(c(2,5,0,8,1,4,2,6,7,8,9,3,1,5,7,8),4)
+D
+solve(D)
+```
+  
+
+ chol(x) cholesky decomposition: if U <- chol(x), then t(U) %*% U reconstructs x
+```{r}
+E =  matrix(c(2,-1,0,-1,2,-1,0,-1,2),3)
+U = chol(E)
+U
+t(U)%*%U
+```
+ 
+ 判断是否正定
+```{r}
+library(matrixcalc)
+is.positive.definite(E)
+```
+ 
+ eigen(x) eigendecomposition  you get the eigenvector and eigenvalues
+ `e$vectors%*%diag(e$values,length(e$values))%*%t(e$vectors)` reconstructs `X`
+```{r}
+eigen(E)
+```
+ 
+
+
+
+### Rowwise and columnwise computation #
+
+ apply(X,       Array,matrix or data frame
+      MARGIN,   1:rows, 2:columns, c(1,2): rows and columns
+      FUN ）    Function to be applied
+```{r}
+A
+apply(A, MARGIN =1, FUN=sum)
+apply(A, MARGIN =2, FUN=sum)
+apply(A, MARGIN =c(1,2), FUN=exp)
+setequal(apply(A,c(1,2),exp),exp(A))
+```
+
+
+ sweep(X,MARGIN,STATS,FUN) for each row&col evaluate FUN(X,STATS[i]) and replace the original row.
+```{r}
+A
+sweep(A,1,c(1:3),"+")
+sweep(A,2,c(1:4),"+")
+```
+ 
+
+
+* `colMeans`, `rowMeans`, `colSums`, `rowSums`: exactly as it sounds.
+* `scale(X)`: centre the matrix so that its column means are 0 and its column mean-squared value is 1; further arguments can be used to do one or the other only.
+```{r}
+scale(A)
+```
+
+
+
+
+
+
+
+

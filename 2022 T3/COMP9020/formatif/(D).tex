@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{enumerate}
+\usepackage{setspace}
+
+\geometry{a4paper,scale=0.80}
+
+\title{Number Theory (D)}
+\author{}
+\date{}
+
+\begin{document}
+	\begin{spacing}{1.5}
+		\maketitle
+		
+		\section*{Prove:}
+		Prove that $m = _{(_n)}p$ if and only if $m \% n=p\%n $.
+		
+		\subsection*{proof}
+		I will prove that $m = _{(_n)}p$ if and only if $m \% n=p\%n $, by showing that 
+		\begin{enumerate}[(a)]
+			\item if $m = _{(_n)}p$, then $m \% n=p\%n $,
+			\item if $m \% n=p\%n$, then $m = _{(_n)}p$.
+		\end{enumerate}
+		
+		\subsubsection*{proof of (a)}
+		By definition of \%,
+		\begin{center}
+			$ m \% n = m-(m \div n)n  $;\\
+			$ p \% n = p-(p \div n)n  $.
+		\end{center}
+		Therefore, $ m \% n - p \% n = (m-p)-((m \div n)-(p \div n))n $.\\
+		By definition of mod, if $ m = _{(_n)}p $, then $ n|(m-p) $.Plus, $ n|((m \div n)-(p \div n))n $.\\
+		Therefore, $ n|(m \% n - p \% n) $. From fact, we know that $ 0 \leq m \% n < n $, so $ m \% n - p \% n $ can only be $ 0 $.\\
+		Therefore, $m \% n=p\%n $.
+		
+		\subsubsection*{proof of (b)}
+		Let $m\%n=p\%n=p'$,\\
+		so $m=\lfloor \frac{m}{n}\rfloor n+p'$ and $p=\lfloor \frac{p}{n}\rfloor n+p'$.\\
+		so $m-p=(\lfloor \frac{m}{n}\rfloor -\lfloor \frac{p}{n}\rfloor)n$.\\
+		so $m=(\lfloor \frac{m}{n}\rfloor -\lfloor \frac{p}{n}\rfloor)n+p$.\\
+		Therefore, $n|(m-p)$.\\
+		Therefore, $m= _{(_n)}p$.\\
+		Therefore,$m = _{(_n)}p$ if and only if $m \% n=p\%n $.
+		
+	\end{spacing}
+
+	
+	
+\end{document}

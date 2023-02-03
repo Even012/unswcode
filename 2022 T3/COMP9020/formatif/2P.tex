@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage{amsmath}
+
+\geometry{a4paper,scale=0.80}
+
+\title{Set Theory (P)}
+\author{}
+\date{}
+
+\begin{document}
+	\begin{spacing}{1.5}
+		\maketitle
+		
+		\section*{Prove:}
+		Prove that for all sets $A \backslash (B \cup C) = (A \backslash B) \cap (A \backslash C)$.
+		
+		\subsection*{proof}
+		\[
+		\begin{array}{rclr}
+			A \backslash (B \cup C) &=& A \cap (B \cap C)^{c} &\quad\text{(Definiton of $\backslash$)}\\
+			&=& A \cap (B^{c} \cup C^{c}) &\quad\text{(de Morgan's Laws)}\\
+			&=& A\cap A \cap (B^{c} \cap C^{c}) &\quad\text{(Idempotence of $ \cap $)}\\
+			&=& A\cap (A \cap B^{c}) \cap C^{c} &\quad\text{(Associativity of $ \cap $)}\\
+			&=& A\cap (B^{c} \cap A) \cap C^{c} &\quad\text{(Communitativity of $ \cap $)}\\
+			&=& (A\cap B^{c}) \cap A \cap C^{c} &\quad\text{(Associativity of $ \cap $)}\\
+			&=& (A\backslash B) \cap A \cap C^{c} &\quad\text{(Definiton of $\backslash$)}\\
+			&=& (A\backslash B) \cap (A \backslash C) &\quad\text{(Definiton of $\backslash$)}\\
+		\end{array}
+		\]
+	
+		
+	\end{spacing}
+	
+	
+	
+\end{document}

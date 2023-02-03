@@ -1,0 +1,59 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage{amsmath}
+
+\geometry{a4paper,scale=0.80}
+
+\title{Set Theory (C)}
+\author{}
+\date{}
+
+\begin{document}
+	\begin{spacing}{1.5}
+		\maketitle
+		
+		\section*{Prove:}
+		Prove that for all sets $ A, B: A=B$ if and only if $A \cap B = A \cup B $.
+		
+		\subsection*{proof}
+		I will prove that for all sets $ A, B: A=B$ if and only if $A \cap B = A \cup B $, by showing that 
+		\begin{enumerate}[(a)]
+			\item if $A=B$, then $ A \cap B = A \cup B $,
+			\item if $A \cap B = A \cup B$, then $A=B$.
+		\end{enumerate}
+		\subsubsection*{Proof of (a)}
+		\[\begin{array}{rclr}
+			A \cap B &=& A \cap A &\quad\text{($ A=B $)}\\
+			&=&  A &\quad\text{(Idempotence of $\cap$)}\\
+			&=&  A \cup A &\quad\text{(Idempotence of $\cup$)}\\
+			&=&  A \cup B &\quad\text{($ A=B $)}\\
+		\end{array}\]
+		\subsubsection*{Proof of (b)}
+		By the result of set theory(HD), we know that $ A = A \cup (B \cap A) $.
+		\[\begin{array}{rclr}
+			A &=& A \cup (B \cap A) \quad\text{(Result of (HD))}\\
+			&=& A \cup (A \cap B) \quad\text{(Communitativity of $ \cap $)}\\
+			&=& A \cup (A \cup B) \quad\text{($ A \cap B = A \cup B $)}\\
+			&=& (A \cup A) \cup B \quad\text{(Communitativity of $ \cap $)}\\
+			&=& A \cup B \quad\text{(Idempotence of $ \cup $)}\\
+			&=& A \cup (B \cup B) \quad\text{(Idempotence of $ \cup $)}\\
+			&=& (B \cup B) \cup A \quad\text{(Communitativity of $ \cup $)}\\
+			&=& B \cup (B \cup A) \quad\text{(Associativity of $ \cup $)}\\
+			&=& B \cup (A \cup B) \quad\text{(Communitativity of $ \cup $)}\\
+			&=& B \cup (A \cup B) \quad\text{($ A \cap B = A \cup B $)}\\
+			&=& B \quad\text{(Result of (HD))}\\
+			
+			
+		\end{array}\]
+
+		
+		
+	\end{spacing}
+	
+	
+	
+\end{document}

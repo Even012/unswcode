@@ -1,8 +1,25 @@
-
-
 # Lec01
 
-Instructions
+### Course Schedule
+
+| Elementary data structures and algorithms in C | week 1   |
+| ---------------------------------------------- | -------- |
+| Analysis of algorithms                         | week 2   |
+| Dynamic data structures                        | week 3   |
+| Graph data structures and algorithms           | week 4-5 |
+| Flexibility week and mid-term exam             | week 6   |
+| Search tree data structures and algorithms     | week 7-8 |
+| String algorithms                              | week 9   |
+| Randomised algorithms, Ethics, Course review   | week 10  |
+
+### Assessment
+
+| **Component**                                                | **Maximum Mark** |
+| ------------------------------------------------------------ | ---------------- |
+| Weekly Exercises (weekly; weeks 2-5, 7-10)                   | 8 × 2 = 16       |
+| Midterm Exam (Online exam, Thursday Week 6 - during class time) | 12               |
+| Assignment (released Friday Week 5, due Tuesday Week 10)     | 12               |
+| Final Exam (exam period, invigilated)                        | 60               |
 
 # Lec02
 
@@ -32,6 +49,20 @@ if (expression){
 ### loops
 
 - while loop
+
+```c
+// while loop         
+while (expression) {
+    some statements; 
+}
+// do .. while loop
+do {
+   some statements;   
+} while (expression);
+```
+
+
+
 - for loop
 
 ### function calls/return statements
@@ -138,4 +169,6 @@ for (i = 0; i < NUM_TICKETS; i++) {
 ## Data Abstraction
 
 ### Abstract Data Types
+
+Users of the ADT see only the *interface*
 

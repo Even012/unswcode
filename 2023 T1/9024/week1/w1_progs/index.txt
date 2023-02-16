@@ -1,0 +1,6 @@
+gcd.c
+euclid.c
+inssort.c
+Stack.h
+Stack.c
+brackets.c

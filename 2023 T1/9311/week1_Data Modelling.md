@@ -59,6 +59,8 @@ ER = Entity Relationship diagram
 
 
 
+
+
 Schema and instances correspond to entity type and entity set members (entities).
 
 ![Entity type example](/Users/chenyuanjian/Documents/unsw/2023 T1/9311/img/9311_02.png)

@@ -1,5 +1,13 @@
 ### LEC1
 
+| Assesment item                                   | Maximum mark |
+| ------------------------------------------------ | ------------ |
+| 8 weekly programming quizzes, worth 3 marks each | 24           |
+| 2 assignments, worth 13 marks each               | 26           |
+| Final exam                                       | 50           |
+
+ Final exam 50
+
 ```python
 # copy file
 cp fahrenheit_to_celsius.py celsius_to_fahrenheit.py
@@ -51,6 +59,16 @@ with open('division_by_2.txt') as file_handle:
 ```
 
 
+
+### code from exercises
+
+```python
+import zipfile
+with zipfile.ZipFile('Illustrations.zip') as illustrations:
+    illustrations.extractall('.')
+    
+from IPython.display import Video
+```
 
 
 

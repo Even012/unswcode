@@ -2,7 +2,7 @@
 
 #define MAXITEMS 10
 
-void StackInit();     // set up empty stack
-int  StackIsEmpty();  // check whether stack is empty
-void StackPush(int);  // insert int on top of stack
-int  StackPop();      // remove int from top of stack
+void QueueInit();     // set up empty stack
+int  QueueIsEmpty();  // check whether stack is empty
+void QueuePush(int);  // insert int on top of stack
+int  QueuePop();      // remove int from top of stack

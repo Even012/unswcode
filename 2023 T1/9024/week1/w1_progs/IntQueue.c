@@ -1,33 +1,36 @@
-// Integer Stack ADO implementation
-#include "IntStack.h"
+// Integer Queue ADO implementation
+#include "IntQueue.h"
 #include <assert.h>
 
 typedef struct {
    int item[MAXITEMS];
    int top;
-} stackRep;                // defines the Data Structure
+} queueRep;                // defines the Data Structure
 
-static stackRep stackObject;  // defines the Data Object
+static queueRep queueObject;  // defines the Data Object
 
-void StackInit() {         // set up empty stack
-   stackObject.top = -1;
+void QueueInit() {         // set up empty queue
+   queueObject.top = -1;
 }
 
-int StackIsEmpty() {      // check whether stack is empty
-   return (stackObject.top < 0);
+int QueueIsEmpty() {      // check whether queue is empty
+   return (queueObject.top < 0);
 }
 
-void StackPush(int n) {   // insert int on top of stack
-   assert(stackObject.top < MAXITEMS-1);
-   stackObject.top++;
-   int i = stackObject.top;
-   stackObject.item[i] = n;
+void QueueEnqueue(int n) {   // insert int on top of queue
+   assert(queueObject.top < MAXITEMS-1);
+   queueObject.top++;
+   int i;
+   for (i = queueObject.top; i > 0; i--) {
+      queueObject.item[i] = queueObject.item[i-1];
+   }
+   queueObject.item[0] = n;
 }
 
-int StackPop() {          // remove int from top of stack
-   assert(stackObject.top > -1);
-   int i = stackObject.top;
-   int n = stackObject.item[i];
-   stackObject.top--;
+int QueueDequeue() {          // remove int from top of queue
+   assert(queueObject.top > -1);
+   int i = queueObject.top;
+   int n = queueObject.item[i];
+   queueObject.top--;
    return n;
 }

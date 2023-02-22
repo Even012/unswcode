@@ -172,6 +172,13 @@ for (i = 0; i < NUM_TICKETS; i++) {
 
 Users of the ADT see only the *interface*
 
+```c
+#include <assert.h>
+// assert(test) terminates program with error message if test fails
+assert(stackObject.top < MAXITEMS-1);
+assert(stackObject.top > -1);
+```
 
 
-1111
+
+![](/Users/chenyuanjian/Documents/unsw/2023 T1/9024/week1/img/w1_01.png)

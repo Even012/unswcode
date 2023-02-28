@@ -170,6 +170,13 @@ for (i = 0; i < NUM_TICKETS; i++) {
 
 ### Abstract Data Types
 
+abstract data objects
+
+- stack ADO
+- Queue ADO
+
+
+
 Users of the ADT see only the *interface*
 
 ```c
@@ -182,3 +189,4 @@ assert(stackObject.top > -1);
 
 
 ![](/Users/chenyuanjian/Documents/unsw/2023 T1/9024/week1/img/w1_01.png)
+

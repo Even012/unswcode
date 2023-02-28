@@ -1,0 +1,7 @@
+binary.c
+collatz1.c
+collatz2.c
+stack.c
+stack.h
+vectors.c
+Makefile
